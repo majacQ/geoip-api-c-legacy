@@ -76,7 +76,9 @@ typedef struct GeoIPTag {
     unsigned int ext_flags; /* bit 0 teredo support enabled */
 } GeoIP;
 
-typedef struct GeoIPLookup { int netmask; } GeoIPLookup;
+typedef struct GeoIPLookup {
+    int netmask;
+} GeoIPLookup;
 
 typedef enum { GEOIP_TEREDO_BIT = 0 } GeoIPExtFlags;
 
@@ -158,6 +160,9 @@ typedef enum {
 #ifdef GEOIP_EXPORTS
 #define GEOIP_API __declspec(dllexport)
 #define GEOIP_DATA __declspec(dllexport)
+#elif GEOIP_STATIC
+#define GEOIP_API
+#define GEOIP_DATA
 #else
 #define GEOIP_DATA __declspec(dllimport)
 #define GEOIP_API
@@ -295,6 +300,13 @@ GEOIP_API char *
 GeoIP_name_by_addr_v6_gl(GeoIP *gi, const char *addr, GeoIPLookup *gl);
 GEOIP_API char *
 GeoIP_name_by_name_v6_gl(GeoIP *gi, const char *name, GeoIPLookup *gl);
+
+/*
+ * Free a malloc()-ed string returned by other APIs. Handy to have on
+ * Windows where you may have different libraries linked with different
+ * versions of the runtime (e.g. MT debug and MT release).
+ */
+GEOIP_API void GeoIP_string_delete(char *ptr);
 
 /** return two letter country code */
 GEOIP_API const char *GeoIP_code_by_id(int id);

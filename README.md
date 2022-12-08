@@ -1,30 +1,25 @@
 # GeoIP Legacy C Library #
 
-## Important Note ##
+## End of Life ##
 
-This library is for the GeoIP Legacy format (dat). To read the MaxMind DB
-format (mmdb) used by GeoIP2, please see
-[libmaxminddb](https://github.com/maxmind/libmaxminddb).
+MaxMind will be retiring the GeoIP Legacy databases at the end of May
+2022. Until then, this library will only receive critical security and bug
+fixes. Support for this library will end completely with the last release of
+the legacy GeoIP databases.
+
+We recommend that you upgrade to our GeoIP2 databases. You can read these
+from C using [libmaxminddb](https://github.com/maxmind/libmaxminddb).
+
+See [our blog post](https://blog.maxmind.com/2020/06/01/retirement-of-geoip-legacy-downloadable-databases-in-may-2022/)
+for more information.
 
 ## Description ##
 
 The GeoIP Legacy C library enables the user to find geographical and network
-information of an IP address. To use this library, you may download our free
-GeoLite Legacy Country or City databases. These are updated at the beginning
-of every month. The latest versions are available at:
+information of an IP address. To use this library, you may user our commercial
+GeoIP Legacy databases. For more details, see:
 
-https://dev.maxmind.com/geoip/legacy/geolite
-
-We also offer commercial GeoIP Legacy databases with greater accuracy and
-additional network information. For more details, see:
-
-https://www.maxmind.com/en/geolocation_landing
-
-If you use GeoIP Legacy to block access from high risk countries, you may wish
-to use our proxy detection service to block access from known proxy servers to
-reduce fraud and abuse. For more details, see:
-
-https://www.maxmind.com/en/proxy
+https://www.maxmind.com/en/geoip2-services-and-databases
 
 ## IP Geolocation Usage ##
 
@@ -140,10 +135,7 @@ test/
      test-geoip-netspeed.c
 ```
 
-The test-geoip.c program works with both the GeoLite Legacy and GeoIP Legacy
-Country databases. The test-geoip-city.c program works with both the GeoLite
-Legacy and GeoIP Legacy City databases. The other example programs require the
-paid databases available (https://www.maxmind.com/en/geolocation_landing).
+These example programs use our [GeoIP Legacy databases](https://www.maxmind.com/en/geoip2-services-and-databases).
 
 ## Troubleshooting ##
 
