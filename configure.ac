@@ -1,7 +1,7 @@
 dnl AM_CONFIG_HEADER(config.h)
 
 AC_PREREQ([2.63])
-AC_INIT([GeoIP], [1.6.9],[support@maxmind.com],[GeoIP])
+AC_INIT([GeoIP], [1.6.12],[support@maxmind.com],[GeoIP])
 AC_CONFIG_AUX_DIR([.])
 AC_CONFIG_SRCDIR([libGeoIP/GeoIP.c])
 AC_CONFIG_MACRO_DIR([m4])
@@ -48,8 +48,6 @@ AC_CHECK_FUNC(gethostbyname_r, [
 
 AC_CHECK_FUNCS([ memset memchr munmap strrchr socket strchr strdup strstr ])
 
-AC_FUNC_MALLOC
-AC_FUNC_REALLOC
 AC_FUNC_MMAP
 
 AC_ARG_ENABLE([data-files],
